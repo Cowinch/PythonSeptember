@@ -57,13 +57,13 @@ dojo = {
 
 
 def printInfo(some_dict):
-    print(f"{len(dojo['locations'])}  Locations")
-    for i in range(0, len(dojo['locations']), 1):
-        print(dojo['locations'][i])
+    print(f"{len(some_dict['locations'])}  Locations")
+    for i in range(0, len(some_dict['locations']), 1):
+        print(some_dict['locations'][i])
     print('')
-    print(f"{len(dojo['instructors'])}  instructors")
-    for i in range(0, len(dojo['instructors']), 1):
-        print(dojo['instructors'][i])
+    print(f"{len(some_dict['instructors'])}  instructors")
+    for i in range(0, len(some_dict['instructors']), 1):
+        print(some_dict['instructors'][i])
     print('')
 
 
