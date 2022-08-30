@@ -20,8 +20,8 @@ class User:
         self.last_name=user_data['last_name']
         self.email=user_data['email']
         self.age=user_data['age']
-        is_rewards_member=False
-        gold_card_points=0
+        self.is_rewards_member=False
+        self.gold_card_points=0
 
     def display_info(self):
         print(f"First name: {self.first_name}")
@@ -37,4 +37,4 @@ class User:
         pass
 
 User1=User(user[0])
-User.display_info()
+User1.display_info()
