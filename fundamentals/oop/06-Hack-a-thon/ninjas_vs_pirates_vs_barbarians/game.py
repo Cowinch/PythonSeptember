@@ -11,7 +11,6 @@ player2 = Character()
 player1ready=False
 player2ready=False
 while(player1ready==False):
-    print('')
     response = input('Player 1, please decide a class:\n 1) Pirate \n 2) Barbarian\n 3) Ninja\n')
     if response == '1':
         player1=Pirate()
@@ -24,7 +23,6 @@ while(player1ready==False):
         player1ready=True
     else:
         while(response != '1' and response != '2'):
-            print('')
             response = input('Player 1, please decide a class:\n 1) Pirate \n 2) Barbarian\n 3) Ninja\n')
 
 
@@ -32,7 +30,6 @@ player1.show_stats()
 player2.show_stats()
 
 while(player2ready==False):
-    print('')
     response = input('Player 2, please decide a class:\n 1) Pirate \n 2) Barbarian\n 3) Ninja\n')
     if response == '1':
         player2=Pirate()
@@ -45,15 +42,12 @@ while(player2ready==False):
         player2ready=True
     else:
         while(response != '1' and response != '2'):
-            print('')
             response = input('Player 2, please decide a class:\n 1) Pirate \n 2) Barbarian\n 3) Ninja\n')
 
 
 
 while(player1.health >0 and player2.health >0):
-    print('')
     response = input(f"Player 1: {player1.name}, will you attack or recuperate, or use your special? \n 1) attack \n 2) recuperate \n 3) {player1.special_name}\n" )
-    print('')
     if response == '1':
         player1.attack(player2)
     elif response=='2':
@@ -62,11 +56,8 @@ while(player1.health >0 and player2.health >0):
         player1.special(player2)
     else:
         while(response != '1' and response != '2' and response != '3'):
-            print('')
             print('Please pick a valid option')
-            print('')
             response = input(f"Player 1: {player1.name}, will you attack or recuperate, or use your special? \n 1) attack \n 2) recuperate \n 3) {player1.special_name}\n" )
-            print('')
 
 
     response = input(f"Player 2: {player2.name}, will you attack or recuperate, or use your special? \n 1) attack \n 2) recuperate \n 3) {player2.special_name}\n" )
