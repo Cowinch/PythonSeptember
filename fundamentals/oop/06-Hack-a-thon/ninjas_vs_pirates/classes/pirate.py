@@ -1,15 +1,27 @@
-class Pirate:
+from classes.character import Character
+import random
 
-    def __init__( self , name ):
-        self.name = name
-        self.strength = 15
-        self.speed = 3
-        self.health = 100
+class Pirate(Character):
+    def __init__(self):
+        super().__init__()
+        self.defense=20
+        self.health=80
+        self.special_name='trick shot'
+        self.name='Pirate'
 
-    def show_stats( self ):
-        print(f"Name: {self.name}\nStrength: {self.strength}\nSpeed: {self.speed}\nHealth: {self.health}\n")
-
-    def attack ( self , ninja ):
-        ninja.health -= self.strength
+    def special(self, target):
+        print('Pirate used Trick shot!')
+        print('')
+        roll=random.randint(1,100)
+        if roll>=60:
+            self.strength=self.strength*2
+            self.attack(target)
+            self.health-=10
+            self.strength=self.strength/2
+            print('Trick shot was a success!')
+            print('')
+        else:
+            print('Trickshot was a failure :(')
+            print('')
         return self
 

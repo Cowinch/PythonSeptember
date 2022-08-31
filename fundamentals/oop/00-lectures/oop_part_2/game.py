@@ -4,7 +4,7 @@ from game_classes.pokemon import Pokemon
 import random
 
 bob=Character()
-bulbasaur=Pokemon('grass', 501)
+bulbasaur=Pokemon('grass', 50)
 
 while(bob.health >0 and bulbasaur.health >0):
     response = input("You're bob, will you attack or recuperate? \n 1) attack \n 2) heal \n")
@@ -17,18 +17,28 @@ while(bob.health >0 and bulbasaur.health >0):
             print('Please pick a valid option')
             response = input("You're bob, will you attack or recuperate? \n 1) attack \n 2) heal \n")
     
-    roll = random.randint(1,4)
-    if roll==1:
+    response = input("You're bulbasaur, will you attack or recuperate? \n 1) attack \n 2) heal \n")
+    if response == '1':
         bulbasaur.attack(bob)
-        print("bulbasaur attacks")
-    elif roll==2:
+    elif response=='2':
         bulbasaur.heal()
-        print("bulbsaur heals")
-    elif roll==3:
-        bulbasaur.evolve()
-        print("Bulbasaur evolved!")
-    elif roll==4:
-        print('Bulbasaur did nothing lmao')
+    else:
+        while(response != '1' and response != '2'):
+            print('Please pick a valid option')
+            response = input("You're bulbasaur, will you attack or recuperate? \n 1) attack \n 2) heal \n")
+    
+    # roll = random.randint(1,4)
+    # if roll==1:
+    #     bulbasaur.attack(bob)
+    #     print("bulbasaur attacks")
+    # elif roll==2:
+    #     bulbasaur.heal()
+    #     print("bulbsaur heals")
+    # elif roll==3:
+    #     bulbasaur.evolve()
+    #     print("Bulbasaur evolved!")
+    # elif roll==4:
+    #     print('Bulbasaur did nothing lmao')
 
     print('')
     print("Bob: ")
