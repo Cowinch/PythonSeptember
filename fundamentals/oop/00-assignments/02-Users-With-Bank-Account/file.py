@@ -61,28 +61,34 @@ class BankAccount:
             account.display_account_info()
 
 class User:
-    def __init__(self, name, email, int_rate, balance):
+    def __init__(self, name, email):
         self.name=name
         self.email=email
-        self.account=BankAccount(int_rate,balance)
+        self.account={}
 
-    def make_deposit(self, amount):
-        self.account.deposit(amount)
+    def make_bank_account(self, account_number, int_rate,balance):
+        if f"account_{account_number}" not in self.account:
+            self.account["account_"+account_number]=BankAccount(int_rate,balance)
         return self
 
-    def make_withdrawal(self, amount):
-        self.account.withdraw(amount)
+    def make_deposit(self, account_number, amount):
+        self.account["account_"+account_number].deposit(amount)
         return self
 
-    def display_user_balance(self):
+    def make_withdrawal(self,account_number, amount):
+        self.account["account_"+account_number].withdraw(amount)
+        return self
+
+    def display_user_balance(self, account_number):
         print(f"The following is {self.name}'s bank account")
-        self.account.display_account_info()
+        self.account["account_"+account_number].display_account_info()
         return self
 
-adrian=User('Adrian Gosling', 'thisisanemail@email.com', .01,0)
+adrian=User('Adrian Gosling', 'thisisanemail@email.com')
+adrian.make_bank_account( '001', .025, 500)
 
-adrian.make_deposit(500)
+adrian.make_deposit('001',500)
 
-adrian.display_user_balance()
+adrian.display_user_balance('001')
 
-adrian.make_withdrawal(2000)
+adrian.make_withdrawal('001',2000)
