@@ -34,3 +34,7 @@
     handles session cookies
     
 """
+
+"""
+    jinja2 is very similar to python, but is technically NOT python
+"""
