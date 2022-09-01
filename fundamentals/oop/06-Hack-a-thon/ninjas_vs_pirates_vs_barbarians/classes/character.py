@@ -18,12 +18,12 @@ class Character:
         return self
 
     def defend(self, damage):
-        actual_damage=random.randint(3,damage)-self.defense
+        actual_damage=random.randint(damage/2,damage)-self.defense
         self.health-=actual_damage
         return self
 
     def healing(self):
         print("recuperating")
         print('')
-        self.health=(self.health*.1)+self.health+5
+        self.health=(self.health*.05)+self.health+5
 

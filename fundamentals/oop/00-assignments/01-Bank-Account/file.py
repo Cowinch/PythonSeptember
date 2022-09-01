@@ -14,6 +14,7 @@ class BankAccount:
         print('===================')
         print(f'New balance after a deposit of ${amount}: ${self.balance}')
         print('===================')
+        print('')
         return self
 
     def withdraw(self, amount):
@@ -61,7 +62,7 @@ class BankAccount:
             account.display_account_info()
 
 user1=BankAccount(.01,200)
-user2=BankAccount(.025,400)
+user2=BankAccount(.025,randint(300,500))
 
 user1.display_account_info().deposit(randint(1,800)).deposit(12).deposit(150).withdraw(randint(1,1200)).yield_interest().display_account_info()
 

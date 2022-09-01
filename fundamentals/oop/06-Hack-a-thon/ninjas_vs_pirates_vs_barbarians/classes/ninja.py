@@ -4,7 +4,7 @@ import random
 class Ninja(Character):
     def __init__(self):
         super().__init__()
-        self.defense=10
+        self.defense=53
         self.health=80
         self.strength=20
         self.special_name='Smoke bomb'

@@ -5,7 +5,7 @@ class Barbarian(Character):
     def __init__(self):
         super().__init__()
         self.defense=0
-        self.health=125
+        self.health=135
         self.special_name='war cry'
         self.name='Barbarian'
 

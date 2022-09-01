@@ -47,7 +47,7 @@ def iterateDictionary(list):
 def iterateDictionary2(key_name, some_list):
     for i in range(0, len(some_list), 1):
         print(some_list[i][key_name])
-# iterateDictionary2('first_name', students)
+iterateDictionary2('first_name', students)
 
 
 dojo = {
@@ -67,7 +67,7 @@ def printInfo(some_dict):
     print('')
 
 
-printInfo(dojo)
+# printInfo(dojo)
 # output:
 # 7 LOCATIONS
 # San Jose

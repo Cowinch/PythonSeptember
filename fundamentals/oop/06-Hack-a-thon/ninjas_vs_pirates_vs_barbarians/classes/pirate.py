@@ -4,7 +4,7 @@ import random
 class Pirate(Character):
     def __init__(self):
         super().__init__()
-        self.defense=20
+        self.defense=8
         self.health=80
         self.special_name='trick shot'
         self.name='Pirate'
