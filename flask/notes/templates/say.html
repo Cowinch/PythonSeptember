@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <h1>Hello, welcome to rendering templates</h1>
-    <h2>{{new_variable_html}}</h2>
-    {% for i in range(5)%}
-    <p>{{i}}</p>
-        {%if i ==3%}
-        <p>this should appear below the number 3</p>
-        {% endif %}
+    <h1>Welcome to say.html</h1>
+    {%for i in range(number)%}
+    <p>{{word}}</p>
     {%endfor%}
-    <a href="/route_to_page2">Page 2</a>
 </body>
-
 </html>

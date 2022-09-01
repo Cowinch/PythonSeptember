@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: {{w}}px;
+            height: {{h}}px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h1>Here's some cats</h1>
+
+        <ul>
+            {%for cat in cats %}
+            <li>Name: {{cat['name']}} Color: {{cat['color']}}</li>
+            <img src="{{url_for('static', filename='img/cake.jpg') }}" height="50px">
+            {%endfor%}
+        </ul>
+    </div>
+</body>
+
+</html>
