@@ -8,9 +8,6 @@ player1 = Character()
 
 player2 = Character()
 
-def randomRoll():
-    rand=random.randint(1,3)
-
 player1ready=False
 player2ready=False
 while(player1ready==False):
