@@ -5,7 +5,7 @@ class Pirate(Character):
     def __init__(self):
         super().__init__()
         self.defense=8
-        self.health=80
+        self.health=85
         self.special_name='trick shot'
         self.name='Pirate'
 

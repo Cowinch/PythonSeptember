@@ -12,8 +12,8 @@ class Barbarian(Character):
     def special(self, target):
         print('the Barbarian lets out a massive shout, striking harder but losing health in the process')
         print('')
-        self.strength=self.strength*2
+        self.strength=self.strength*3
         self.attack(target)
-        self.health-=10
-        self.strength=self.strength/2
+        self.health-=20
+        self.strength=self.strength/3
         return self
