@@ -16,9 +16,9 @@
     step 4: in cmder, run: python server.py
     usually the file we're going to run is called server.py
     
-    step 6: to exit server.py and return to the shell, we need to hit CTRL+C
+    step 5: to exit server.py and return to the shell, we need to hit CTRL+C
     
-    step 5: then we can run exit to leave the shell
+    step 6: then we can run exit to leave the shell
     when were done working in the environment we run exit to leave
 """
 
