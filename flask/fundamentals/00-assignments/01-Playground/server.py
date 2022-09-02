@@ -5,16 +5,16 @@ app=Flask(__name__)
 def nothing_here():
     return "Theres nothing here"
 
-@app.route('/play')
 def play():
     return render_template('play.html', number=3, color='aqua')
 
-@app.route('/play/<int:number>')
 def playAmount(number):
     return render_template('play.html', number=number, color='aqua')
 
+@app.route('/play')
+@app.route('/play/<int:number>')
 @app.route('/play/<int:number>/<color>')
-def playAmountColor(number, color):
+def playAmountColor(number=3, color='aqua'):
     return render_template('play.html', number=number, color=color)
 
 if __name__=='__main__':
