@@ -3,15 +3,37 @@ from random import randint
 app=Flask(__name__)
 app.secret_key = 'no secrets on github'
 
+"""
+    Two things to ask spencer:
+        1: How do I use back end python to remove an HTML element (ie the Moves left: )
+        2: I am unable to iterate  my for loop backwards as I am unable to use range() as it says the variable is undefined
+"""
+
 @app.route('/')
 def root():
     #this if statement is because gold only needs to be set to 0 
     if 'gold' not in session:
         session['gold']=0
         session['activities']=[]
+        session['button']=''
+        session['left']='<p>Moves left: {{left}}</p>'
+        #the left variable was an attempt at removing the Moves Left after there are no moves left. Sadly, Jinja does not recongize Jinja
+        session['moves']=15
     gold=session['gold']
     activities=session['activities']
-    return render_template('index.html', gold=gold, activities=activities) #because this is the page being rendered, values passed to jinja must be passed here
+    button=session['button']
+    left=session['left']
+    moves=session['moves']
+    if moves==0:
+        return redirect('/game_over')
+    return render_template(
+        'index.html', 
+        gold=gold, 
+        left=left,
+        activities=activities, 
+        moves=moves, 
+        button=button,
+    ) #because this is the page being rendered, values passed to jinja must be passed here
 
 @app.route('/process_money', methods=['POST'])
 def process():
@@ -38,8 +60,20 @@ def process():
             activities.append(f'<p id="green">Earned {random} gold from the casino!</p>')
         else:
             activities.append(f'<p id="red">Lost {random} gold from the casino!</p>')
+    moves=session['moves']
+    moves-=1
+    session['moves']=moves
     print(session)
     return redirect('/')#do not attempt to pass values to jinja in a redirect method
+
+@app.route('/game_over')
+def gameOver():
+    moves=session['moves']
+    moves='0'
+    session['moves']=moves
+    #we turn the moves value into a string, so it still displays 0 moves left to the user but, it wont run the if moves==0 statement again, saving us from an infinite redirect loop and crashing the page
+    session['button']='<div><button name="reset" >reset</button></div>'
+    return redirect('/')
 
 @app.route('/reset', methods=['POST'])
 def restart():

@@ -14,9 +14,8 @@
         <form action="/reset" method="post">
             <div class="gold">
                 <p id="gold-display">Your Gold: {{gold}}</p>
-                <div>
-                    <button name="reset" >reset</button>
-                </div>
+                <p>Moves left: {{moves}}</p>
+                {{button|safe}}
             </div>
         </form>
         <div class="game">
