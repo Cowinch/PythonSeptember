@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div id="body">
+        <form action="/reset" method="post">
+            <div class="gold">
+                <p id="gold-display">Your Gold: {{gold}}</p>
+                <div>
+                    <button name="reset" >reset</button>
+                </div>
+            </div>
+        </form>
+        <div class="game">
+            <div class="container">
+                <form action="/process_money" method="post">
+                    <h3>Farm</h3>
+                    <p>(earns 0-20 gold)</p>
+                    <input type="hidden" name="building" value="farm" />
+                    <input type="submit" value="Find Gold!" class="button" />
+                </form>
+            </div>
+            <div class="container">
+                <form action="/process_money" method="post">
+                    <h3>Cave</h3>
+                    <p>(earns 3-10 gold)</p>
+                    <input type="hidden" name="building" value="cave" />
+                    <input type="submit" value="Find Gold!" class="button" />
+                </form>
+            </div>
+            <div class="container">
+                <form action="/process_money" method="post">
+                    <h3>House</h3>
+                    <p>(earns 6 gold)</p>
+                    <input type="hidden" name="building" value="house" />
+                    <input type="submit" value="Find Gold!" class="button" />
+                </form>
+            </div>
+            <div class="container">
+                <form action="/process_money" method="post">
+                    <h3>Casino</h3>
+                    <p>(earns/takes 0-50 gold)</p>
+                    <input type="hidden" name="building" value="casino"/>
+                    <input type="submit" value="Find Gold!" class="button" />
+                </form>
+            </div>
+        </div>
+        <p id="activies-display">Activities: </p>
+        <div class="activies-container">
+            {%for i in activities%}
+                {{i|safe}}
+            {%endfor%}
+            <!-- any attempt to use range or leng() causes undefined errors. I need to figure out how to define activities, even though it literally is defined >:( -->
+        </div>
+    </div>
+</body>
+
+</html>

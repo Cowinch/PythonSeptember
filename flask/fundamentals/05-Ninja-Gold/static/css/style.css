@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+body{
+    background-color: rgb(58, 57, 57);
+    padding: 21px 35px;
+}
+#body{
+    width: 750px;
+    display: inline-block;
+}
+h1, p, h3{
+    color: white;
+    margin-bottom: 10px;
+}
+.gold{
+    display: flex;
+    justify-content: space-between;
+}
+#gold-display{
+    color: gold;
+    vertical-align: center;
+    margin-bottom: 30px;
+}
+#activies-display{
+    text-align: left;
+}
+.button, button{
+    border-radius: 5px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+.game{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.container{
+    border: 1px solid black;
+    padding: 15px 25px;
+    background-color: #33393E;
+    margin-bottom: 30px;
+}
+.activies-container{
+    background-color: white;
+    height: 100px;
+    overflow: auto;
+}
+.activies-container p{
+    color: black;
+    text-align: left;
+}
+#green{
+    color: green;
+}
+#red{
+    color:red
+}
+
+
+/* 404 */
+.four-o-four{
+    text-align: center;
+}
