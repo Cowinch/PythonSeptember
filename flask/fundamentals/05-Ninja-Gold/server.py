@@ -4,9 +4,10 @@ app=Flask(__name__)
 app.secret_key = 'no secrets on github'
 
 """
-    Two things to ask spencer:
+    Three things to ask spencer:
         1: How do I use back end python to remove an HTML element (ie the Moves left: )
         2: I am unable to iterate  my for loop backwards as I am unable to use range() as it says the variable is undefined
+        3: the entire if statement thats responsible for asking what button was pressed and assigning random gold causes an undefined error if I put all of that in an if moves>0 statement. Why?
 """
 
 @app.route('/')
@@ -24,8 +25,10 @@ def root():
     button=session['button']
     left=session['left']
     moves=session['moves']
+    
     if moves==0:
         return redirect('/game_over')
+    
     return render_template(
         'index.html', 
         gold=gold, 
@@ -60,6 +63,8 @@ def process():
             activities.append(f'<p id="green">Earned {random} gold from the casino!</p>')
         else:
             activities.append(f'<p id="red">Lost {random} gold from the casino!</p>')
+    
+    #these 3 lines of code is what decrements the moves left display. If this was performed in the root() method then it run everytime the page was refreshed. We don't want that
     moves=session['moves']
     moves-=1
     session['moves']=moves
