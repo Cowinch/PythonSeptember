@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Robot', sans-serif;
 }
 body{
     background-color: rgb(58, 57, 57);
@@ -18,17 +19,44 @@ button{
     cursor: pointer;
 }
 .container{
-    border: 3px solid black;
-    border-radius: 5px;
+    margin-top: 100px;
+    border: 1px solid black;
     max-width: 500px;
-    padding: 12px 20px;
+    min-width: 400px;
+    padding: 15px 25px;
+    background-color: #33393E;
 }
-.input{
+.input-box{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 20px;
     gap: 10px;
 }
+.input{
+    border-radius: 5px;
+}
+#main{
+    display: flex;
+    justify-content: center;
+}
+#title{
+    color: #FEC008;
+    margin: 10px 0px;
+}
+#submit{
+    width:80px;
+    background-color: #FEC008;
+    border: 1px solid black;
+}
+#submitHover{
+    width: 80px;
+    background-color: #33393E;
+    border: none;
+}
+#username{
+    color: #057AFE;
+}
+/* 404 page */
 .four-o-four{
     text-align: center;
 }
