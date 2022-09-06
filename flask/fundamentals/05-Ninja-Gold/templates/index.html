@@ -14,7 +14,9 @@
         <form action="/reset" method="post">
             <div class="gold">
                 <p id="gold-display">Your Gold: {{gold}}</p>
+                {%if moves>0%}
                 <p>Moves left: {{moves}}</p>
+                {%endif%}
                 {{button|safe}}
             </div>
         </form>
@@ -54,10 +56,9 @@
         </div>
         <p id="activies-display">Activities: </p>
         <div class="activies-container">
-            {%for i in activities%}
-                {{i|safe}}
+            {%for i in range(activities|length, -1, -1)%}
+                {{activities[i]|safe}}
             {%endfor%}
-            <!-- any attempt to use range or leng() causes undefined errors. I need to figure out how to define activities, even though it literally is defined >:( -->
         </div>
     </div>
 </body>
