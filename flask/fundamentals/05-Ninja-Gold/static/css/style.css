@@ -5,8 +5,10 @@
     text-align: center;
 }
 body{
-    background-color: rgb(58, 57, 57);
+    /* background-color: rgb(58, 57, 57); */
+    background-image: linear-gradient(rgb(58, 57, 57), rgb(61, 60, 60), rgb(77, 73, 55));
     padding: 21px 35px;
+    height: 1080px;
 }
 #body{
     width: 750px;
