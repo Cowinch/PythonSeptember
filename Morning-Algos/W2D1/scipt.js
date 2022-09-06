@@ -83,5 +83,5 @@ var plusOne = function(digits) { //teachers solution
 // console.log(incrementArray(arr1))
 // console.log(incrementBrokeDown(arr1))
 // console.log(incrementArray(arr2))
-console.log(incrementBrokeDown(arr3))
+// console.log(incrementBrokeDown(arr3))
 console.log(PlusOne(arr3));
