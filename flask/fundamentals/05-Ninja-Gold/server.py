@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, make_response, url_for
 from random import randint
+import re
 app=Flask(__name__)
 app.secret_key = 'no secrets on github'
 
@@ -15,13 +16,15 @@ def root():
     #this if statement is because gold only needs to be set to 0 
     if 'gold' not in session:
         session['gold']=0
-        session['activities']=[]
+        session['activities']=[ ]
         session['button']=''
         session['left']='<p>Moves left: {{left}}</p>'
         #the left variable was an attempt at removing the Moves Left after there are no moves left. Sadly, Jinja does not recongize Jinja
         session['moves']=15
     gold=session['gold']
     activities=session['activities']
+    activities=reversed(activities)
+    #this reversed method, imported from re, flips the index around. This is what allows us to print our activites in order from newest performed.
     button=session['button']
     left=session['left']
     moves=session['moves']
