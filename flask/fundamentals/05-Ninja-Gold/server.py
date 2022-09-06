@@ -50,17 +50,17 @@ def process():
     session['building']=request.form['building']
     if session['moves']>0:
         if(session['building']=='farm'):
-            random=randint(0,20)
+            random=randint(-5,25)
             session['gold']+=random
             activities=session['activities']
             activities.append(f'<p id="green">Earned {random} gold from the farm!</p>')
         elif(session['building']=='cave'):
-            random=randint(3,10)
+            random=randint(3,12)
             session['gold']+=random
             activities=session['activities']
             activities.append(f'<p id="green">Earned {random} gold from the cave!</p>')
         elif(session['building']=='house'):
-            session['gold']+=6
+            session['gold']+=7
             activities=session['activities']
             activities.append('<p id="green">Earned 6 gold from the house!</p>')
         elif(session['building']=='casino'):
