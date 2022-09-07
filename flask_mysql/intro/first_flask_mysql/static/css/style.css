@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body{
+    background-color: rgb(58, 57, 57);
+}
+
+
+button, #button{
+    border-radius: 5px;
+    padding: 3px 5px;
+    cursor: pointer;
+    background-color: rgb(212, 181, 4);
+    color: black;
+}
+.container{
+    border: 1px solid black;
+    padding: 15px 25px;
+    background-color: #33393E;
+    margin-bottom: 30px;
+}
+input{
+    background-color: rgb(58, 57, 57);
+    margin-right: 5px;
+}
+/* 404 */
+.four-o-four{
+    text-align: center;
+}
