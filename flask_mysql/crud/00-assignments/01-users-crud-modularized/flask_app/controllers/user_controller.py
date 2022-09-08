@@ -12,7 +12,11 @@ def index():
 @app.route('/<int:id>/view')
 def one_dog(id):
     one_user=User.get_one({'id': id})
-    return render_template('one_user.html', one_user=one_user)
+    database_zeroes=''
+    database_num_length=len(str(id))
+    for i in range(0, 8-database_num_length, 1):
+        database_zeroes+='0'
+    return render_template('one_user.html', one_user=one_user,database_zeroes=database_zeroes)
 
 #create new user FORM
 @app.route('/create')
