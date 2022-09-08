@@ -2,12 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-body{
-    background-color: rgb(58, 57, 57);
-}
-h1, p{
-    color: white;
+    /* background-color: rgb(58, 57, 57); */
 }
 button{
     border-radius: 5px;
