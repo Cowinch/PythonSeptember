@@ -11,5 +11,4 @@ def new_ninja():
 @app.route('/dojos/ninja/process', methods=['POST'])
 def process_ninja():
     Ninja.create(request.form)
-    id=request.form['dojo_id']#attempting to pass id
     return redirect('/dojos')
