@@ -27,9 +27,9 @@ class Dojo:
     
     @classmethod
     def get_one(cls,data):
-        query ="SELECT * FROM dojos LEFT JOIN ninjas on dojos.id=dojo_id WHERE dojos.id=%(id)s"
+        query ="SELECT * FROM dojos LEFT JOIN ninjas on dojos.id=dojo_id WHERE dojos.id=%(id)s;"
         results=connectToMySQL(DATABASE).query_db(query, data)
-        print(results)
+        # print(results)
         if len(results) > 0:
             dojo_instance=cls(results[0])
             ninja_list=[]
@@ -41,10 +41,13 @@ class Dojo:
                     'age': row_from_db['age'],
                     'created_at': row_from_db['created_at'],
                     'updated_at': row_from_db['updated_at'],
-                    'dojo_id': row_from_db['dog_id'],
+                    'dojo_id': row_from_db['dojo_id'],
                 }
-                dojo_instance=ninja_model.Assign(ninja_data)
-                ninja_list.append(dojo_instance)
-            dojo_instance.list =ninja_list
+                ninja_instance=ninja_model.Ninja(ninja_data) #this line instantiates a Ninja using the ninja_data from the dictionary
+                
+                ninja_list.append(ninja_instance) #this line of code is what adds ninjas to our list
+                
+            dojo_instance.list_of_ninjas =ninja_list #this line creates an attribrute is what we use to attach our ninja's info 
+            print(dojo_instance)
             return dojo_instance
         return False

@@ -15,10 +15,19 @@ def homepage():
     print(all_dojos)
     return render_template('index.html', all_dojos=all_dojos)
 
+#process new dojo, redirect to homepage
 @app.route('/dojos/new', methods=['POST'])
 def create_new_dojo():
     Dojo.create(request.form)
-    return redirect('/')
+    return redirect('/dojos')
+
+#display Dojo and Ninjas of that Dojo
+@app.route('/dojos/<int:id>')
+def display_dojo(id):
+    one_dojo=Dojo.get_one({'id':id})
+    return render_template('dojo_show.html', one_dojo=one_dojo)
+
+
 
 @app.errorhandler(404)
 def page_not_found(e): #as far as I can tell this parameter literally exists just to stop a positional argument error.
