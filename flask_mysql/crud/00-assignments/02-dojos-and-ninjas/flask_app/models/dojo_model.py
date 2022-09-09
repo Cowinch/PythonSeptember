@@ -16,17 +16,19 @@ class Dojo:
         # print(results)
         all_dojos=[]
         for row_from_db in results:
-            dojo_instance= cls(row_from_db) #instantiates dog object from row in db
+            dojo_instance= cls(row_from_db) #instantiates dojo object from row in db
             all_dojos.append(dojo_instance) #adds instance to list of instances
         return all_dojos
     
     @classmethod
     def create(cls, data):
+        #super simple, we're only submitting one value (name) for a dojo in our database
         query="INSERT INTO dojos (name) VALUES (%(name)s);"
         return connectToMySQL(DATABASE).query_db(query, data)
     
     @classmethod
     def get_one(cls,data):
+        #we do a left join so even if theres no ninjas it still displays the dojo
         query ="SELECT * FROM dojos LEFT JOIN ninjas on dojos.id=dojo_id WHERE dojos.id=%(id)s;"
         results=connectToMySQL(DATABASE).query_db(query, data)
         # print(results)
@@ -39,8 +41,8 @@ class Dojo:
                     'first_name': row_from_db['first_name'],
                     'last_name': row_from_db['last_name'],
                     'age': row_from_db['age'],
-                    'created_at': row_from_db['created_at'],
-                    'updated_at': row_from_db['updated_at'],
+                    'created_at': row_from_db['ninjas.created_at'],
+                    'updated_at': row_from_db['ninjas.updated_at'],
                     'dojo_id': row_from_db['dojo_id'],
                 }
                 ninja_instance=ninja_model.Ninja(ninja_data) #this line instantiates a Ninja using the ninja_data from the dictionary

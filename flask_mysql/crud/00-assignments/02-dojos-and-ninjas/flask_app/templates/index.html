@@ -11,7 +11,7 @@
 <body>
     <div class="d-flex justify-content-between mt-5">
         <div>
-            <form action="/dojos/new" method="post" class="p-3 bg-dark mb-5">
+            <form action="/dojos/new" method="post" class="box p-3 bg-dark mb-2">
                 <h1 class="text-light mb-4">New Dojo</h1>
                 <div class="form-group mb-3">
                     <label for="name" class="text-light">Name: </label>
@@ -21,10 +21,10 @@
             </form>
             <a href="/dojos/ninja">Add a new Ninja!</a>
         </div>
-        <div class=" p-5 bg-dark">
-            <h1 class="text-light mb-5">All Dojos</h1>
+        <div class="p-5 bg-dark box">
+            <h1 class="text-light mb-4">All Dojos</h1>
             {%for one_dojo in all_dojos%}
-                <p class="text-light"><a href="/dojos/{{one_dojo.id}}">{{one_dojo.name}}</a></p>
+                <p><a href="/dojos/{{one_dojo.id}}" class="underline pb-1">{{one_dojo.name}}</a></p>
             {%endfor%}
         </div>
     </div>

@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    
 }
 button{
     border-radius: 5px;
@@ -23,6 +22,10 @@ label{
 input{
     border-radius: 5px;
 }
-.four-o-four{
-    text-align: center;
+.box{
+    border-radius: 10px;
+}
+.underline{
+    border-bottom: 1px solid white;
+    text-decoration: none;
 }
