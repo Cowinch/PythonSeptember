@@ -30,9 +30,9 @@ class Dojo:
         query ="SELECT * FROM dojos LEFT JOIN ninjas on dojos.id=dojo_id WHERE dojos.id=%(id)s;"
         results=connectToMySQL(DATABASE).query_db(query, data)
         # print(results)
-        if len(results) > 0:
+        if len(results) > 0: #this if statement purely exists to return a FALSE boolean value if nothing comes up for results
             dojo_instance=cls(results[0])
-            ninja_list=[]
+            ninja_list=[] #defining an empty index where we will store our individual Ninja dictionaries
             for row_from_db in results:
                 ninja_data={
                     'id': row_from_db['ninjas.id'],
