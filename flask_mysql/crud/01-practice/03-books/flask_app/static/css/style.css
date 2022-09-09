@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: rgb(58, 57, 57); */
+}
+button{
+    border-radius: 5px;
+    padding: 3px 5px;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(204, 174, 4);
+    margin-top: 15px;
+}
+.four-o-four{
+    text-align: center;
+}
