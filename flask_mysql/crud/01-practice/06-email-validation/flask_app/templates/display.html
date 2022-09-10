@@ -10,11 +10,12 @@
     <script>
         function showAlert(){
             alert ("{% with messages = get_flashed_messages() %}{% if messages %}{% for message in messages %}{{message}}{% endfor %}{% endif %}{% endwith %}")
-        }
+        }//this script works without a hitch
     </script>
 </head>
 <body>
     <div class="col-6 bg-dark rounded mx-auto p-5 text-light mt-5">
+        <!-- I want js to run an alert method only when Jinja renders it, but jinja likes to pretend onload doesnt exist -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
