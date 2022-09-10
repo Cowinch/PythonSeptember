@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color: rgb(58, 57, 57);
+    margin: 0 5%;
+}
+button{
+    border-radius: 5px;
+    padding: 3px 5px;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(204, 174, 4);
+    margin-top: 15px;
+}
+.underline{
+    border-bottom: 1px solid white;
+    margin-top: 2px;
+}
