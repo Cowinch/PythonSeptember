@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>Emails</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
     <script>
         function showAlert(){
@@ -13,7 +13,7 @@
         }//this script works without a hitch
     </script>
 </head>
-<body>
+<body class="bg-secondary">
     <div class="col-6 bg-dark rounded mx-auto p-5 text-light mt-5">
         <!-- I want js to run an alert method only when Jinja renders it, but jinja likes to pretend onload doesnt exist -->
         {% with messages = get_flashed_messages() %}
@@ -25,16 +25,20 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <p>Latest email added: {{latest_email[0]['name']}}</p>
+        <p>Latest email added: {{latest_email[0]['name']}} at {{latest_email[0]['created_at']}}</p>
         <div class="d-flex">
         </div>
         <h2>Here are the emails:</h2>
+        <p>Ordered by <a href="/display/{{switch}}/switch">{{switch}}</a> <a href="/display/{{switch}}/flip" style="text-decoration: none;margin-left: 5px;">&{{carrot}};</a></p>
         <!-- if there are no emails, I would like the page to still load and display that there are no emails. Instead, I get a jinja2.exceptions.UndefinedError: tuple object has no element 0 -->
         {%if all_emails[0].id==None%}
         <p>No Emails yet</p>
         {%else%}
         {% for email in all_emails %}
-            <p class="mb-1">{{email.name}} <a href="/destroy/{{email.id}}" class="confirmation" onclick="">Delete</a></p>
+            <div class="d-flex justify-content-between">
+                <p class="mb-1">{{email.name}} <a href="/destroy/{{email.id}}" class="confirmation" onclick="">Delete</a></p>
+                <p>{{email.id}}</p>
+            </div>
             <p class="mb-4 underline">Created at: {{email.created_at}}</p>
         {% endfor %}
         {%endif%}
@@ -42,5 +46,14 @@
         <!-- <button onclick="deleto(this)">Click to make me go bye bye</button> -->
     </div>
     <script src="../static/js/script.js"></script>
+    <script>
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {//this code comes from https://stackoverflow.com/questions/10462839/how-to-display-a-confirmation-dialog-when-clicking-an-a-link
+            if (!confirm('Are you sure about that?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
 </body>
 </html>

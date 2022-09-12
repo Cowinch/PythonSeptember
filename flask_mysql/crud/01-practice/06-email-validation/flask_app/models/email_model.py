@@ -19,8 +19,8 @@ class Email:
         return connectToMySQL(DATABASE).query_db(query, data)
     
     @classmethod
-    def get_all(cls):
-        query= "SELECT * FROM emails;"
+    def get_all(cls,query_str):
+        query= f"SELECT * FROM emails order by {query_str};"
         results = connectToMySQL(DATABASE).query_db(query)
         all_emails = []
         for row in results:
