@@ -1,0 +1,6 @@
+INSERT INTO items (name, description, quantity, cost) values('TV','52in. flat screen TV. state of the art display','12','250');
+INSERT INTO items (name, description, quantity, cost) 
+values('Gaming chair','lacking all of the vital office chair features such as syncrho-tilt. But hey, its colorful and its shaped like a racing chair! for some reason','5','300');
+INSERT INTO items (name, description, quantity, cost) values('Air Fryer',"Hip new electronic kitchen appliance. Don't be that one household user that doesn't own one!",'32','185');
+INSERT INTO items (name, description, quantity, cost) values('Mug','Its just a plain white mug that says "I LOVE CSS" on the side, with some boxes clipping over other boxes','326','11');
+select * from items;
