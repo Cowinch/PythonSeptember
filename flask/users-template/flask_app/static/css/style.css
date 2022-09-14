@@ -5,15 +5,50 @@
 }
 body{
     background-color:rgb(58, 57, 57);
+    margin-top:50px
 }
-h1, h3, p, label{
+h1, h3, p, label, th, td{
     color: white;
 }
+#td{
+    color:white;
+}
 button{
-    border-radius: 5px;
-    padding: 3px 5px;
+    border-radius: 8px;
+    padding: 6px 10px;
     cursor: pointer;
     color: black;
     background-color: rgb(204, 174, 4);
     margin-top: 15px;
+}
+.button-link{
+    text-decoration: none;
+    color: black;
+}
+.button-link a:hover{
+    text-decoration: none;
+    color: black;
+}
+.button-link a:focus{
+    text-decoration: none;
+    color: black;
+}
+.button-link a:active {
+    text-decoration: none;
+    color: black;
+}
+.box{
+    border-radius: 10px;
+    padding: 12px 20px;
+}
+#login{
+    block-size: fit-content;
+}
+#recipe{
+    background-color: #8e97a0;
+    border-radius: 10px;
+    padding: 12px 20px;
+}
+#recipe p{
+    color: black;
 }
