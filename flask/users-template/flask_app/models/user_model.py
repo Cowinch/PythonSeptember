@@ -33,6 +33,7 @@ class User:
             return False
         return cls(results[0])
     
+    
     @classmethod
     def get_by_id(cls,data):
         #the two commented out lines are what was originally written before linked to another table
