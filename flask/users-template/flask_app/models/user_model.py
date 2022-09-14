@@ -17,12 +17,14 @@ class User:
         self.email=data['email']
         self.created_at=data['created_at']
         self.updated_at=data['updated_at']
-        
+    
+    #create NEW USER
     @classmethod
     def create(cls, data):
         query="INSERT INTO users (first_name, last_name, password, email) VALUES (%(first_name)s,%(last_name)s,%(password)s,%(email)s);"
         return connectToMySQL(DATABASE).query_db(query,data)
     
+    #this method is used when logging in a returning user
     @classmethod
     def get_by_email(cls,data):
         query="SELECT * FROM users WHERE email = %(email)s;"
@@ -31,6 +33,32 @@ class User:
             return False
         return cls(results[0])
     
+    @classmethod
+    def get_by_id(cls,data):
+        #the two commented out lines are what was originally written before linked to another table
+        query="SELECT * FROM users WHERE users.id = %(id)s;"
+        # query="SELECT * FROM users LEFT JOIN recipes on users.id=recipes.user_id WHERE users.id = %(id)s;"
+        results=connectToMySQL(DATABASE).query_db(query,data)
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+        # user =cls(results[0])
+        # list_of_recipes=[]
+        # for row in results:
+        #     if row['recipes.id']==None:
+        #         break
+        #     recipe_data={
+        #         **row,
+        #         'id':row['recipes.id'],
+        #         'created_at':row['recipes.created_at'],
+        #         'updated_at':row['recipes.updated_at'],
+        #     }
+        #     this_recipe=recipe_model.Recipe(recipe_data)
+        #     list_of_recipes.append(this_recipe)
+        # user.recipes=list_of_recipes
+        # return user
+    
+    #validates for both registering and returning users
     @staticmethod
     def validate(user_data):
         is_valid=True
