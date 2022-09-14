@@ -1,6 +1,8 @@
 from flask_app import app
 from flask import render_template, redirect, request, flash, session
+from flask_app.models.item_model import Item
 from flask_app.models.user_model import User
+from flask_app.models.order_model import Order
 from flask_app import DATABASE
 from flask_bcrypt import Bcrypt
 bcrypt=Bcrypt(app)
@@ -48,12 +50,12 @@ def login():
 def welcome():
     if 'user_id' not in session:
         return redirect('/')
-    # all_recipes=Recipe.get_all()
+    all_orders=Order.get_all()
     user_data={
         'id':session['user_id']
     }
     logged_user=User.get_by_id(user_data)
-    return render_template('dashboard.html', logged_user=logged_user) # all_recipes=all_recipes
+    return render_template('dashboard.html', logged_user=logged_user, all_orders=all_orders)
 
 #process route to LOG OUT
 @app.route('/users/logout')

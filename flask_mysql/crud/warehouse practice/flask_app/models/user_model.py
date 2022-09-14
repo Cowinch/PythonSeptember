@@ -3,6 +3,8 @@ from flask_app import DATABASE
 from flask import flash
 from flask import Flask
 from flask_app import app
+from flask_app.models import order_model
+from flask_app.models import item_model
 import re
 EMAIL_REGEX=re.compile(r"^[a-zA-Z0-9.+_-]+@[a-zA-Z0-0._-]+\.[a-zA-Z]+$")
 from flask_bcrypt import Bcrypt

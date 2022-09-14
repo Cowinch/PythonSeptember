@@ -9,10 +9,41 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container d-flex justify-content-between mt-5">
-        <h1>Success</h1>
+    <div class="container d-flex justify-content-between mb-5">
+        <h1>Welcome, {{logged_user.first_name}}</h1>
         <a href="/users/logout" class="btn btn-danger">Logout</a>
     </div>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+        {%for message in get_flashed_messages()%}
+            <p class="text-danger">{{message}}</p>
+        {%endfor%}
+    <div class="container bg-dark box">
+        <h3>All Orders</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Order id: </th>
+                    <th>Ordered By: </th>
+                    <th>Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for order in all_orders%}
+                <tr>
+                    <td id="td">{{order.id}}</td>
+                    <td id="td">{{order.customer.first_name}} {{order.customer.last_name}}</td>
+                    <td id="td">
+                        <a href="orders/{{order.id}}">View</a>
+                        {%if session['user_id']==order.user_id%}
+                        | <a href="/orders/{{order.id}}/edit">Edit</a> |
+                        <a class="confirmation" href="/orders/{{order.id}}/delete">Delete</a> |
+                        {%endif%}
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <button class="button-link"><a href="/orders/create" class="button-link">Place an order!</a></button>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </div>
 </body>
 </html>
