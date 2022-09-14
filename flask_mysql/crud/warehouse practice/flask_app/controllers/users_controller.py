@@ -5,10 +5,17 @@ from flask_app import DATABASE
 from flask_bcrypt import Bcrypt
 bcrypt=Bcrypt(app)
 
+#this is a reroute to home page
 @app.route('/')
 def index():
+    return redirect('/login')
+
+#this is just so when we're logging in the URL reflects the stage we're at
+@app.route('/login')
+def home():
     return render_template('index.html')
 
+#process form route for NEW USERS
 @app.route('/users/register', methods=['POST'])
 def register():
     if not User.validate(request.form):
@@ -22,6 +29,7 @@ def register():
     session['user_id']=id
     return redirect('/welcome')
 
+#process form route for ACTIVE USERS
 @app.route('/users/login', methods=['POST'])
 def login():
     data={'email': request.form['email']}
@@ -35,11 +43,19 @@ def login():
     session['user_id']=user_in_db.id
     return redirect('/welcome')
 
-
+#DASHBOARD
 @app.route('/welcome')
 def welcome():
-    return render_template('success.html')
+    if 'user_id' not in session:
+        return redirect('/')
+    # all_recipes=Recipe.get_all()
+    user_data={
+        'id':session['user_id']
+    }
+    logged_user=User.get_by_id(user_data)
+    return render_template('dashboard.html', logged_user=logged_user) # all_recipes=all_recipes
 
+#process route to LOG OUT
 @app.route('/users/logout')
 def logout():
     del session['user_id']
