@@ -4,3 +4,14 @@ values('Gaming chair','lacking all of the vital office chair features such as sy
 INSERT INTO items (name, description, quantity, cost) values('Air Fryer',"Hip new electronic kitchen appliance. Don't be that one household user that doesn't own one!",'32','185');
 INSERT INTO items (name, description, quantity, cost) values('Mug','Its just a plain white mug that says "I LOVE CSS" on the side, with some boxes clipping over other boxes','326','11');
 select * from items;
+select * from items;
+SELECT count(first_name) AS TotalUsers FROM users;
+select * from users;
+select * from order_has_items;
+select * from orders;
+select * from orders left join users on user_id=users.id; 
+select users.id as users_id, user_id, orders.id as orders_id, first_name, last_name from orders join users on user_id=users.id;
+select first_name, last_name, orders.id as orders_id, user_id, item_id, items.name from orders join users on user_id=users.id join order_has_items on orders.id=order_id join items on item_id=items.id;
+
+insert into orders (user_id) values (1);
+insert into order_has_items (order_id, item_id) values (1,3);
